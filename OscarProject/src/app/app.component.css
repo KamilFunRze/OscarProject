@@ -1,0 +1,421 @@
+.yellowBackground {
+  background: #FFED25;
+}
+
+.sheetyBackground {
+  background: rgb(109, 106, 99);
+}
+
+.orangeBackground {
+  background: #FF9C23;
+  opacity: 0.9;
+}
+
+.skinnyBackground {
+  background: #E89A79;
+}
+
+.pinkBackground {
+  background: #FF6A64;
+}
+
+
+.pageBackground {
+  background: rgb(54, 23, 23);
+  opacity: 0.85;
+}
+
+.mainTextBackground {
+  background: rgb(203, 213, 213);
+  opacity: 0.9;
+}
+
+.logoBanner {
+    position: sticky;
+    background: rgb(214, 110, 65);
+    top: 0;
+    z-index: 10;
+}
+
+.theLogo {
+    position: relative;
+    left: 3%;
+}
+
+
+
+
+@media screen and (min-width:800px) {
+ 
+  #pageContainer {
+    width: 80%;
+    margin: auto;
+  }
+
+  .gap {
+    background: #FF9C23;
+    height: 50px;
+}
+
+  #header {
+    text-align: center;
+    margin: auto;
+    width: 95%;
+    border-radius: 20px;
+    
+  }
+
+  #left-column {
+    width: calc(100% * 10 / 40);
+    float: left;
+    left: calc(100% * 0.5 / 40);
+    position:  relative;
+  }
+
+  #center-column {
+    width: calc(100% * 28 / 40);
+    float: right;
+    position: relative;
+    right:  calc(100% * 1 / 40);
+    text-align: center;
+    top: -100px;
+  }
+
+  #right-column {
+    visibility: hidden;
+    /* width: calc(100% * 2 / 8);
+    float: right; */
+  }
+
+  #footer {
+    clear: both;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  div {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0px;
+    padding: 15px;
+    text-align: justify;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 2px 2px 0px 2px;
+  }
+
+  li a {
+    display: block;
+    background: silver;
+    padding: 5px 10px 5px 10px;
+  }
+
+  li a:hover {
+    background: red;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width:799px) {
+  #pageContainer {
+    margin: 0px auto;
+  }
+
+  .gap {
+    background: #FF9C23;
+    height: 30px;
+}
+
+  #header {
+    text-align: center;
+    border-radius: 20px
+  }
+
+  #left-column {
+    width: 100%;
+    float: left;
+    max-height: 300px;
+    overflow-y: scroll ;
+  }
+
+  #center-column {
+    width: calc(100% * 2/3);
+    float: left;
+    text-align: justify;
+  }
+
+  #right-column {
+    width: calc(100% * 1/3);
+    float: right;
+  }
+
+  #footer {
+    clear: both;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  div {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0px;
+    padding: 15px;
+    text-align: justify;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 2px 2px 0px 2px;
+  }
+
+  li a {
+    display: block;
+    background: silver;
+    padding: 5px 10px 5px 10px;
+  }
+
+  li a:hover {
+    background: red;
+  }
+}
+
+
+
+@media screen and (max-width:599px) and (min-width:400px) {
+  #pageContainer {
+    margin: 0px auto;
+  }
+
+  .gap {
+    background: #FF9C23;
+    height: 20px;
+}
+
+  #header {
+    text-align: center;
+    border-radius: 20px
+  }
+
+  #left-column {
+    width: 50%;
+    float: left;
+  }
+
+  #center-column {
+    width: 100%;
+    float: left;
+    text-align: justify; 
+  }
+
+  #right-column {
+    width: 50%;
+    float: right;
+  }
+
+  #footer {
+    clear: both;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  div {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0px;
+    padding: 15px;
+    text-align: justify;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 2px 2px 0px 2px;
+  }
+
+  li a {
+    display: block;
+    background: silver;
+    padding: 5px 10px 5px 10px;
+  }
+
+  li a:hover {
+    background: red;
+  }
+}
+
+
+@media screen and (max-width:399px) {
+
+
+  #pageContainer {
+    margin: 0px auto;
+  }
+
+  .gap {
+    background: #FF9C23;
+    height: 10px;
+}
+
+  #header {
+    text-align: center;
+    border-radius: 20px
+  }
+
+  #left-column {
+    width: 100%;
+  }
+
+  #leftMenuHeader:hover ~ #leftMenuContent {
+    visibility: visible;
+    display: block;
+  }
+
+  #leftMenuContent {
+    visibility: hidden;
+    display: none;
+  }
+
+  #leftMenuContent:hover {
+    visibility: visible;
+    display: block;
+  }
+
+  #center-column {
+    width: 100%;
+    text-align: justify;
+  }
+
+  #right-column {
+    width: 100%;
+
+  }
+  
+
+  #rightMenuHeader:hover ~ #rightMenuContent {
+    visibility: visible;
+    display: block;
+  }
+
+  #rightMenuContent {
+    visibility: hidden;
+    display: none;
+  }
+
+  #rightMenuContent:hover {
+    visibility: visible;
+    display: block;
+  }
+
+  #footer {
+    clear: both;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  div {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0px;
+    padding: 15px;
+    text-align: justify;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 2px 2px 0px 2px;
+  }
+
+  li a {
+    display: block;
+    background: silver;
+    padding: 5px 10px 5px 10px;
+  }
+
+  li a:hover {
+    background: red;
+  }
+}

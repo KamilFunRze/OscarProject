@@ -1,0 +1,52 @@
+.movieDescription {
+    font-style: italic;
+    font-size: 90%;
+}
+
+.movieVoteAmount {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.movieVote {
+    /* float : right;
+    padding-right: 10px; */
+}
+
+
+@media screen and (min-width:800px) {
+
+    #movieListContainer {
+
+    }
+
+    .singleMovie {
+        border:1px solid red;
+        padding-bottom: 50px;
+        position: relative;
+        
+    }
+
+    .movieTitle {
+        font-size: 200%;
+    }
+
+    
+
+    div {
+        margin: 0px;
+        padding: 0px;
+      }
+}
+
+@media screen and (min-width:600px) and (max-width:799px) {
+
+}
+
+@media screen and (min-width:400px) and (max-width:599px) {
+
+}
+
+@media screen and (max-width:399px) {
+
+}
