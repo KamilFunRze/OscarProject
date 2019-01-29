@@ -6,8 +6,15 @@
       <span id="theLogo">
         <img width="300" alt="OscarProject Logo" src="assets/img/logo.png">
       </span>
-      <span id="mostPopularMoviesBanner">
-        Newest movies:
+      <span id="mostPopularMoviesBanner" >
+        
+        <div>
+          <div id="oneLatestMovie" *ngFor="let movie of movies" [routerLink]="'/movies/details'">
+            {{movie.title}}
+          </div>
+          
+        </div>
+        <div>Newest movies</div>
       </span>
     </div>
 

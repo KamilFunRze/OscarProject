@@ -46,13 +46,40 @@
 
 
 
-@media screen and (min-width:1200px) {
+
+@media screen and (min-width:1300px) {
  
   
   #pageContainer {
     width: 80%;
     margin: auto;
     min-height: 100vh;
+  }
+
+  #mostPopularMoviesBanner {
+    display: inline-block;
+    height: 100%;
+    width: 70%;
+    text-align: center;
+    right: -20px;
+  }
+
+  #oneLatestMovie {
+    display: inline-flex;
+    margin: 3px;
+    border: 2px solid;
+    height: 100px;
+    width: 18%;
+    text-align: center;
+    color: rgb(16, 16, 43);
+    word-wrap: break-word;
+    overflow:hidden;
+
+  }
+
+  #oneLatestMovie:hover {
+    border: 2px solid rgb(151, 52, 52);
+    
   }
 
   .gap {
@@ -149,7 +176,7 @@
   }
 }
 
-@media screen and (min-width:600px) and (max-width:1199px) {
+@media screen and (min-width:600px) and (max-width:1299px) {
   #pageContainer {
     margin: 0px auto;
   }

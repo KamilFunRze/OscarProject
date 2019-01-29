@@ -24,8 +24,8 @@ getMovies(){
   return  this.httpClient.get(`${this.API_URL}/movies`);
 }
 
-createMovie(model: any): Observable <any> {
-  return this.httpClient.post(`${this.API_URL}/movies`, model); 
+createMovie(movie: Movie): Observable <any> {
+  return this.httpClient.post(`${this.API_URL}/movies`, movie); 
 }
 
 getOneMovie(movieId:number) {
@@ -33,7 +33,7 @@ getOneMovie(movieId:number) {
 }
 
 updateMovie(movieId:number, movie:Movie) {
-
+  return this.httpClient.post(`${this.API_URL}/movies/${movieId}`, movie); 
 }
 
 

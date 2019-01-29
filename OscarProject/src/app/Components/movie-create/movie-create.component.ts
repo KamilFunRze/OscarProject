@@ -11,12 +11,12 @@ export class MovieCreateComponent implements OnInit {
 
   private movie : Movie;
   constructor(private http: HttpRequesterService) { 
-    this.movie = new Movie(null,"",null,new Date("15 Dec 2005"),null,null);
+    this.movie = new Movie(null,null,null,null,null,null);
     
   }
 
   ngOnInit() {
-    
+    // this.addMovie();
   }
 
 
