@@ -4,7 +4,7 @@
 
     <div class="logoBanner">
       <span id="theLogo">
-        <img width="300" alt="OscarProject Logo" src="assets/img/logo.png">
+        <img width="300" alt="OscarProject Logo" src="assets/img/logo.png" [routerLink]="'/'">
       </span>
       <span id="mostPopularMoviesBanner" >
         
@@ -24,24 +24,24 @@
       <h1>Header</h1>
     </div>
     <div id="left-column">
-      <h2 id="leftMenuHeader">Explore Oscar Project (Left Menu)</h2>
+      <h2 id="leftMenuHeader">Explore Oscar Project</h2>
       <ul id="leftMenuContent">
-
-        <li><a [routerLink]="'/'"> Main page </a></li>
-        <li><a [routerLink]="'/users/details'"> My account </a></li>
-        <li><a [routerLink]="'/rates'"> My rates </a></li>
+        
         <li><a [routerLink]="'/movies'"> Browse movies </a></li>
         <li><a [routerLink]="'/movies/add'"> Add movie </a></li>
+        <li><a [routerLink]="'/users'"> Meet other users </a></li>
 
 
       </ul>
     </div>
     <div id="right-column">
-      <h2 id="rightMenuHeader">Acount management (Right Menu)</h2>
+      <h2 id="rightMenuHeader">Account management</h2>
       <ul id="rightMenuContent">
         <li><a [routerLink]="'/login'"> Login </a></li>
         <li><a [routerLink]="'/users/add'"> Register </a></li>
-        <li><a [routerLink]="'/users'"> User list </a></li>
+        <li><a [routerLink]="'/users/details'"> My account </a></li>
+        <li><a [routerLink]="'/rates'"> My rates </a></li>
+        
       </ul>
     </div>
     <div id="center-column" class="mainTextBackground">

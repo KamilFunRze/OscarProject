@@ -100,6 +100,9 @@
     float: left;
     left: calc(100% * 0.5 / 40);
     position:  relative;
+
+    position: sticky;
+    top: 200px;
   }
 
   #center-column {

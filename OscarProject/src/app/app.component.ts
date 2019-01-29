@@ -11,14 +11,15 @@ export class AppComponent {
 
 
   title = 'OscarProject';
-  movies :Array<Movie>;
+  movies : Array<Movie> = [];
   constructor(private http : HttpRequesterService) {
     
   }
 
   ngOnInit() {
-    this.http.getMovies().subscribe((data : any) => { // getLatestMovies TODO
-      this.movies = data;
+    this.http.getMovies().subscribe((data : Array<Movie>) => { // getLatestMovies TODO
+      for (let i = 0;data[i] && i<5;i++)
+      this.movies.push(data[i])
       // console.log(this.movies);
     })
   }

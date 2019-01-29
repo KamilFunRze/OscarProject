@@ -2,16 +2,20 @@
   Add Movie!
 </p>
 
-
-<div class="dataCreationBlock">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="this.movie.title" placeholder="Insert movie's title here">
-  </div>
-  
+<div class="container">
   <div>
-    <label for="premiereDate">Premiere Date</label>
-    <input type="text" class="form-control" id="premiereDate" type="date" name="premiereDate" required [(ngModel)]="this.movie.premiereDate">
+    <label class="test" for="name">Name</label>
+    <input type="text" class="test" id="name" name="name" required [(ngModel)]="this.movie.title" placeholder="Insert movie's title here">
   </div>
 
+  <div>
+    <label class="test" for="premiereDate">Premiere Date</label>
+    <input class="test" id="premiereDate" type="date" name="premiereDate" required [(ngModel)]="this.movie.premiereDate">
+  </div>
+
+  <div>
+    <label class="test" for="description">Description</label>
+    <textarea class="test" name="description" id="description" cols="30" rows="5" [(ngModel)]="this.movie.description"></textarea>
+  </div>
+<input type="submit" value="Dodaj" (click)="addMovie()">
 </div>
