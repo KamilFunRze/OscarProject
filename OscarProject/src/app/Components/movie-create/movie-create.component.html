@@ -1,12 +1,17 @@
 <p>
-  movie-create works!
+  Add Movie!
 </p>
 
 
-<div class="form-group">
+<div class="dataCreationBlock">
+  <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name"
-           required
-           [(ngModel)]="title" name="name">
+    <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="this.movie.title" placeholder="Insert movie's title here">
   </div>
-  {{title}}
+  
+  <div>
+    <label for="premiereDate">Premiere Date</label>
+    <input type="text" class="form-control" id="premiereDate" type="date" name="premiereDate" required [(ngModel)]="this.movie.premiereDate">
+  </div>
+
+</div>

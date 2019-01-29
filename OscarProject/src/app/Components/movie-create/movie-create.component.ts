@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpRequesterService } from 'src/app/Services/http-requester.service';
+import { Movie } from 'src/app/Models/movie';
 
 @Component({
   selector: 'app-movie-create',
@@ -7,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCreateComponent implements OnInit {
 
-  private title : string = "dupa";
-  constructor() { }
+  private movie : Movie;
+  constructor(private http: HttpRequesterService) { 
+    this.movie = new Movie(null,"",null,new Date("15 Dec 2005"),null,null);
+    
+  }
 
   ngOnInit() {
+    
+  }
+
+
+  addMovie() {
+    this.http.createMovie(this.movie).subscribe((data : Movie) => {
+      console.log(data);
+    })
   }
 
 }

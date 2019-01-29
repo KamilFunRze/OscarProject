@@ -7,5 +7,18 @@ import { HttpRequesterService } from './Services/http-requester.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   title = 'OscarProject';
+
+  constructor(private http : HttpRequesterService) {
+    
+  }
+
+  ngOnInit() {
+    this.http.getMovies()
+  }
+
+
+  
 }

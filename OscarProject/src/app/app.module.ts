@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpRequesterService } from './Services/http-requester.service';
 
-
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { UserCreateComponent } from './Components/user-create/user-create.component';
@@ -47,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpRequesterService,
+  providers: [
+    HttpRequesterService,
     DatePipe],
   bootstrap: [AppComponent]
 })
