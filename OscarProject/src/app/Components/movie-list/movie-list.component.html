@@ -1,0 +1,24 @@
+<div id="movieListContainer">
+
+  <div>
+    <div *ngFor="let movie of movies">
+
+      <div class="singleMovie" >
+        <h4 class="movieTitle" [routerLink]="'/movies/details'">{{movie.title}}  </h4>
+        <span class="moviePremiere"> Premiere date: {{movie._premiereDate}}  </span>
+        <br>
+        <span class="movieVote">
+          <span>Rate amount: <span class="movieVoteAmount" *ngIf="movie.voteAmount"> {{movie.voteAmount}}</span></span>
+          
+          <span *ngIf="!movie.voteAmount"> No rates for this movie yet</span>
+        </span>
+        <div class="movieDescription" *ngIf="movie.description">{{movie.description}}</div>
+        <div class="movieDescription" *ngIf="!movie.description">Nobody added description for this movie yet</div>
+      </div>
+
+      
+
+    </div>
+  </div>
+
+</div>

@@ -15,6 +15,11 @@
   "license": "ISC",
   "homepage": "localhost:5555",
   "dependencies": {
+    "@angular/common": "^7.2.2",
+    "@angular/compiler": "^7.2.2",
+    "@angular/core": "^7.2.2",
+    "@angular/platform-browser": "^7.2.2",
+    "@angular/platform-browser-dynamic": "^7.2.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
@@ -22,10 +27,13 @@
     "express-session": "^1.15.6",
     "express-validator": "^5.2.0",
     "morgan": "^1.9.0",
+    "ngx-cookie-service": "^2.1.0",
     "nodemon": "^1.17.4",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "rxjs": "^6.3.3",
     "sequelize": "^4.37.6",
-    "sequelize-cli": "^4.0.0"
+    "sequelize-cli": "^4.0.0",
+    "zone.js": "^0.8.29"
   }
 }

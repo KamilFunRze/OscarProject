@@ -1,0 +1,52 @@
+.movieDescription {
+    font-style: italic;
+    font-size: 90%;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: -5px;
+}
+
+.movieVoteAmount {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+
+
+.movieVote {
+    float : right;
+    padding-right: 10px;
+}
+
+.singleMovie {
+    border:1px solid black;
+    padding-bottom: 50px;
+    position: relative;
+    
+}
+
+.movieTitle:hover {
+    color:  red;
+    
+}
+
+.movieTitle {
+    font-size: 200%;
+}
+
+
+@media screen and (min-width:1300px) {
+
+}
+
+@media screen and (min-width:600px) and (max-width:1299px) {
+
+}
+
+@media screen and (min-width:400px) and (max-width:599px) {
+
+}
+
+@media screen and (max-width:399px) {
+
+}
