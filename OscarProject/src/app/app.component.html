@@ -9,7 +9,7 @@
       <span id="mostPopularMoviesBanner" >
         
         <div>
-          <div id="oneLatestMovie" *ngFor="let movie of movies" [routerLink]="'/movies/details'">
+          <div id="oneLatestMovie" *ngFor="let movie of movies" [routerLink]="'/movies/details/' + movie.id">
             {{movie.title}}
           </div>
           

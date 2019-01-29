@@ -1,3 +1,22 @@
 <p>
-  movie-details works!
-</p>
+    Movie Details!
+  </p>
+  
+  <div class="container">
+    <div>
+      <label for="name">Name</label>
+      <div type="text" class="test" id="name"> {{this.movie.title}}</div>
+    </div>
+  
+    <div>
+      <label for="premiereDate">Premiere Date</label>
+      <input class="test" id="premiereDate" type="date" name="premiereDate" required [(ngModel)]="this.movie.premiereDate">
+    </div>
+  
+    <div>
+      <label for="description">Description</label>
+      <textarea class="test" name="description" id="description" cols="30" rows="5" [(ngModel)]="this.movie.description"></textarea>
+    </div>
+  <input type="submit" value="Dodaj" [routerLink]="['/movies']">
+  </div>
+  

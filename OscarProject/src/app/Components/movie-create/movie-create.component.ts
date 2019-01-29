@@ -16,13 +16,17 @@ export class MovieCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.addMovie();
+    
   }
 
 
   addMovie() {
     this.http.createMovie(this.movie).subscribe((data : Movie) => {
-      console.log(data);
+      this.movie.title = null;
+      this.movie.premiereDate = null;
+      this.movie.description = null;
+      alert("Successfully added new Movie: " + data.title);
+      
     })
   }
 

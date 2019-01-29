@@ -27,7 +27,7 @@ const routes: Routes = [
   component:  UserListComponent
 },
 {
-  path:  'users/details',
+  path:  'users/details:id',
   component:  UserDetailsComponent
 },
 {
@@ -43,7 +43,7 @@ const routes: Routes = [
   component:  RateCreateComponent
 },
 {
-  path:  'rates/details',
+  path:  'rates/details/:id',
   component:  RateDetailsComponent
 },
 {
@@ -55,7 +55,7 @@ const routes: Routes = [
   component:  MovieCreateComponent
 },
 {
-  path:  'movies/details',
+  path:  'movies/details/:id',
   component:  MovieDetailsComponent
 },
 

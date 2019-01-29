@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpRequesterService } from 'src/app/Services/http-requester.service';
+import { Movie } from 'src/app/Models/movie';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-movie-details',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor() { }
+
+  private movie : Movie;
+  private id : number;
+  constructor(private http : HttpRequesterService, private route: ActivatedRoute, private datePipe:DatePipe, router : Router) {
+    this.movie = new Movie(null,null,null,null,null,null);
+    router.events.subscribe((val) => {
+      
+      if (val instanceof NavigationEnd)
+      {
+        this.OnChanges();
+      } 
+  });
+   }
 
   ngOnInit() {
+    
+    this.OnChanges();
+  }
+
+  OnChanges() {
+    this.route.params.subscribe(params => {
+      this.id =  +params['id'];
+    });
+    this.http.getOneMovie(this.id).subscribe((movie : Movie) => {
+      this.movie = movie;
+      this.movie._premiereDate= this.datePipe.transform(movie.premiereDate, 'yyyy-MM-dd');
+    })
   }
 
 }

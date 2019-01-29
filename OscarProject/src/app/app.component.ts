@@ -17,10 +17,18 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.http.getMovies().subscribe((data : Array<Movie>) => { // getLatestMovies TODO
+    this.updateLatestMovies();
+    setInterval(() => {
+      this.updateLatestMovies();
+    },30000)
+  }
+
+  updateLatestMovies() {
+    
+    this.http.getLatestMovies().subscribe((data : Array<Movie>) => { 
+      this.movies = [];
       for (let i = 0;data[i] && i<5;i++)
       this.movies.push(data[i])
-      // console.log(this.movies);
     })
   }
 

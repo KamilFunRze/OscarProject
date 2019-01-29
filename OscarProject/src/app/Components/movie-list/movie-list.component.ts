@@ -24,18 +24,17 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
-    // console.log(this.movies);
 }
+
+
 public  getMovies(){
     this.httpService.getMovies().subscribe((data:  Array<Movie>) => {
       data.forEach(movie => {
-        console.log(movie.premiereDate);
         movie._premiereDate= this.datePipe.transform(movie.premiereDate, 'yyyy-MM-dd');
       })
       
       this.movies  =  data;
-        
-        // console.log(data);
+
     });
   }
 
