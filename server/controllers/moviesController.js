@@ -45,6 +45,18 @@ module.exports = {
         });
     },
 
+    getLatestMovies(req,res) {
+        movie.findAll({order: [['createdAt', 'DESC']], limit: 5}).then(movieResult => {
+            res.status(200).json(movieResult);
+        }).catch(err => {
+            res.status(500).json({
+                "userMessage": "Server error",
+                "internalMessage" : "Server error",
+                "errorCode" : "500"
+            })
+        });
+    },
+
     addMovie(req,res) {
         if (req.body.title == null || req.body.title == '')
         {

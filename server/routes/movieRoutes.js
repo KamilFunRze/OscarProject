@@ -6,6 +6,8 @@ const moviesController = require('../controllers').moviesController;
 
 router.get('/', moviesController.getAllMovies);
 
+router.get('/latest', moviesController.getLatestMovies);
+
 router.get('/:movieId', moviesController.getMovie);
 
 router.post('/', moviesController.addMovie);
