@@ -58,6 +58,7 @@ module.exports = {
     },
 
     addMovie(req,res) {
+        console.log(req.body);
         if (req.body.title == null || req.body.title == '')
         {
             res.status(400).json({
