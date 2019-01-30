@@ -1,0 +1,23 @@
+<p>
+    Edit Movie!
+  </p>
+  
+  <div class="container">
+    <div>
+      <label class="test" for="name">Name</label>
+      <input type="text" class="test" id="name" name="name" required [(ngModel)]="this.movie.title" placeholder="Insert movie's title here">
+    </div>
+  
+    <div>
+      <label class="test" for="premiereDate">Premiere Date</label>
+      <input class="test" id="premiereDate" type="text" name="premiereDate" 
+      required [(ngModel)]="this.movie._premiereDate">
+    </div>
+  
+    <div>
+      <label class="test" for="description">Description</label>
+      <textarea class="test" name="description" id="description" [(ngModel)]="this.movie.description"></textarea>
+    </div>
+  <input type="submit" value="Edit Movie" (click)="editMovie()">
+  </div>
+  

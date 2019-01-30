@@ -33,7 +33,7 @@ getOneMovie(movieId:number) {
 }
 
 updateMovie(movieId:number, movie:Movie) {
-  return this.httpClient.post(`${this.API_URL}/movies/${movieId}`, movie); 
+  return this.httpClient.put(`${this.API_URL}/movies/${movieId}`, movie); 
 }
 
 

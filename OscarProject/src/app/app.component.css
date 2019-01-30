@@ -166,6 +166,7 @@
   li {
     list-style-type: none;
     padding: 2px 2px 0px 2px;
+    border-radius: 2px;
   }
 
   li a {

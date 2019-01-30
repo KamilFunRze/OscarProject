@@ -18,7 +18,6 @@ import { Movie } from 'src/app/Models/movie';
 export class MovieListComponent implements OnInit {
 
   private movies : Array<Movie> = [];
-  private sampleMovie : Movie = new Movie(999,"Film o pszczołach", "Fajny przyroniczy", new Date(2010,2,12),"12-02-2010",500);
   constructor(private  httpService:  HttpRequesterService, private datePipe:DatePipe) { }
 
 

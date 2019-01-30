@@ -24,6 +24,7 @@ import { MainPageComponent } from './Components/main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     RateListComponent,
     RateDetailsComponent,
     RateCreateComponent,
-    MainPageComponent
+    MainPageComponent,
+    MovieEditComponent
   ],
   imports: [
     BrowserModule,

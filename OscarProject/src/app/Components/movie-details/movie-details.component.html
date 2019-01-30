@@ -10,13 +10,13 @@
   
     <div>
       <label for="premiereDate">Premiere Date</label>
-      <input class="test" id="premiereDate" type="date" name="premiereDate" required [(ngModel)]="this.movie.premiereDate">
+      <div class="test" id="premiereDate">{{this.movie._premiereDate}}</div>
     </div>
   
     <div>
       <label for="description">Description</label>
-      <textarea class="test" name="description" id="description" cols="30" rows="5" [(ngModel)]="this.movie.description"></textarea>
+      <div class="test" id="description" >{{this.movie.description}}</div>
     </div>
-  <input type="submit" value="Dodaj" [routerLink]="['/movies']">
+  <input type="submit" value="Edit" [routerLink]="['/movies/details/' + movie.id + '/edit']">
   </div>
   

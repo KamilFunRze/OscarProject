@@ -11,6 +11,7 @@ import { MovieListComponent } from './Components/movie-list/movie-list.component
 import { MovieCreateComponent } from './Components/movie-create/movie-create.component';
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { MainPageComponent } from './Components/main-page/main-page.component';
+import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
 
 const routes: Routes = [
 
@@ -57,6 +58,10 @@ const routes: Routes = [
 {
   path:  'movies/details/:id',
   component:  MovieDetailsComponent
+},
+{
+  path:  'movies/details/:id/edit',
+  component:  MovieEditComponent
 },
 
 ];
