@@ -1,3 +1,24 @@
-<p>
-  user-login works!
-</p>
+<div class="container" *ngIf="!this.isLogged">
+  <div>
+
+    <input class="test" type="text" id="login" name="login" required [(ngModel)]="this.user.login" placeholder="Login">
+  </div>
+
+  <div>
+    <input class="test" id="password" type="password" name="password" required [(ngModel)]="this.user.password"
+      placeholder="Password">
+  </div>
+
+  <input type="submit" value="Log in" (click)="login()">
+</div>
+
+
+<div class="container" *ngIf="this.isLogged">
+  <div>
+      <div>
+          <label for="name">Login</label>
+          <div type="text" class="test" id="name"> {{this.user.login}}</div>
+        </div>
+        
+    <input type="submit" value="Log out" (click)="logout()">
+  </div>

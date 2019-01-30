@@ -45,7 +45,7 @@ export class MovieEditComponent implements OnInit {
   editMovie() {
     this.movie.premiereDate = new Date(this.movie._premiereDate);
     this.http.updateMovie(this.id,this.movie).subscribe((data : Movie) => {
-      alert("Successfully updated new Movie: " + data.title);
+      alert("Successfully updated Movie: " + data.title);
       this.OnChanges();
     })
   }

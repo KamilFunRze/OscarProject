@@ -27,6 +27,7 @@
 
 .movieTitle:hover {
     color:  red;
+    cursor: pointer;
     
 }
 

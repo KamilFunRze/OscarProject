@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
+import { StorageService } from './Services/storage.service';
 
 @NgModule({
   declarations: [
@@ -46,11 +47,13 @@ import { MovieEditComponent } from './Components/movie-edit/movie-edit.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [
     HttpRequesterService,
-    DatePipe],
+    DatePipe,
+  StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

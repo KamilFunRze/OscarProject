@@ -167,6 +167,7 @@ module.exports = {
   login(req, res) {
     if (req.cookies.authLogin) 
     {
+      console.log(req.cookies);
       res.status(400)
                 .json(
                   {
@@ -205,7 +206,7 @@ module.exports = {
             } else {
               if (result === true) {
                 res.status(200).cookie("authLogin", userResult.dataValues.id,
-                { maxAge: 1000*60*60*24*30, httpOnly: true })
+                { maxAge: 1000*60*60*24*30, httpOnly: false, path: "/" })
                 .json({message:"Logged in succesfully"});
               } else {
                 res.status(401)                
