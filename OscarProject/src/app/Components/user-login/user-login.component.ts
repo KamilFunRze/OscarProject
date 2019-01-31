@@ -21,6 +21,7 @@ import {
   HttpResponseBase,
   HttpErrorResponse
 } from '@angular/common/http';
+import { StorageService } from 'src/app/Services/storage.service';
 
 
 @Component({
@@ -33,9 +34,11 @@ export class UserLoginComponent implements OnInit {
   private user: User = new User(null, "", "", null, null, null);
   private isLogged : boolean;
 
-  constructor(private http: HttpRequesterService, private route: ActivatedRoute,
-    private datePipe: DatePipe, router: Router) {
-      this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false")
+  constructor(private storageService : StorageService,private http: HttpRequesterService, private route: ActivatedRoute, router: Router) {
+      this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
+      this.user.login = window.localStorage.getItem('userLogin') || ""
+      this.user.firstname = window.localStorage.getItem('userFirstName') || ""
+      this.user.lastname = window.localStorage.getItem('userLastName') || ""
       console.log(this.isLogged)
   }
 
@@ -51,13 +54,18 @@ export class UserLoginComponent implements OnInit {
           alert("Logged in successfully");
           window.localStorage.setItem("isLogged","true");
           this.isLogged = true;
+          window.localStorage.setItem('userLogin',this.user.login);
+          this.storageService.changeMessage("login");
+          this.getUserData(data.body.userId)
         
       },
       (error: HttpErrorResponse ) => {
         
         alert("Problem with login. " + error.error.userMessage);
+        console.log(error.error.internalMessage);
         window.localStorage.setItem("isLogged","true");
         this.isLogged = true;
+        window.localStorage.removeItem('userLogin');
       })
 
   }
@@ -66,10 +74,20 @@ export class UserLoginComponent implements OnInit {
     
     window.localStorage.setItem("isLogged","false");
     this.isLogged = false;
-    
+    window.localStorage.removeItem('userLogin');
     this.user.login = "";
     this.user.password = "";
     this.http.logout().subscribe((data: any) => {},
     (error: HttpErrorResponse) => {alert(error.error.userMessage);})
+  
+    this.storageService.changeMessage("logout");
+    
+  }
+
+  getUserData(userId : number) {
+   return this.http.getOneUser(userId).subscribe((data : any) => {
+    this.user = data;
+    console.log(data);
+   })
   }
 }

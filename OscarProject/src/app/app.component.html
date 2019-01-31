@@ -37,8 +37,9 @@
     <div id="right-column">
       <h2 id="rightMenuHeader">Account management</h2>
       <ul id="rightMenuContent">
-        <li><a [routerLink]="'/login'"> Login </a></li>
-        <li><a [routerLink]="'/users/add'"> Register </a></li>
+        <li *ngIf="this.isLogged"><a [routerLink]="'/login'"> Logout </a></li>
+        <li *ngIf="!this.isLogged"><a [routerLink]="'/login'"> Login </a></li>
+        <li *ngIf="!this.isLogged"><a [routerLink]="'/users/add'"> Register </a></li>
         <li><a [routerLink]="'/users/details'"> My account </a></li>
         <li><a [routerLink]="'/rates'"> My rates </a></li>
         

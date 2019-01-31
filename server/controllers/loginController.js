@@ -1,5 +1,6 @@
 const user = require('../models').user;
 const bcrypt = require('bcryptjs');
+const Sequelize = require('sequelize');
 
 
 module.exports = {
@@ -73,7 +74,7 @@ module.exports = {
             else 
             {
               user.create({
-                "login": req.body.login,
+                "login": req.body.login.toLowerCase(),
                 "password": hash,
                 "email": req.body.email,
                 "firstname": req.body.firstname,
@@ -136,7 +137,7 @@ module.exports = {
                 else 
                 {
                   userResult.update({
-                    "login": req.body.login,
+                    "login": req.body.login.toLowerCase(),
                     "password": hash,
                     "email": req.body.email,
                     "firstname": req.body.firstname,
@@ -179,9 +180,9 @@ module.exports = {
     else
     {
       user.findOne({
-        where: {
-          login: req.body.login
-        }
+        where: { 
+          login: Sequelize.fn('lower', Sequelize.col('login'))
+      }
       })
       .then(userResult => {
         if (userResult == null) 
@@ -207,7 +208,7 @@ module.exports = {
               if (result === true) {
                 res.status(200).cookie("authLogin", userResult.dataValues.id,
                 { maxAge: 1000*60*60*24*30, httpOnly: false, path: "/" })
-                .json({message:"Logged in succesfully"});
+                .json({message:"Logged in succesfully",userId:userResult.dataValues.id});
               } else {
                 res.status(401)                
                 .json(

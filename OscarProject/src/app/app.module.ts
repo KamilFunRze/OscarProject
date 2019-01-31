@@ -53,7 +53,7 @@ import { StorageService } from './Services/storage.service';
   providers: [
     HttpRequesterService,
     DatePipe,
-  StorageService],
+    StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

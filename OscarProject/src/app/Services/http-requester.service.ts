@@ -64,8 +64,8 @@ getUsers() {
 }
 
 
-getOneUser(userId:number) {
-
+getOneUser(userId:number) : Observable<any>{
+  return this.httpClient.get(`${this.API_URL}/login/users/${userId}`)
 }
 
 createUser(user : User) {

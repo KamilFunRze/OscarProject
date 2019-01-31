@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpRequesterService } from './Services/http-requester.service';
 import { Movie } from './Models/movie';
+import { StorageService } from './Services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ export class AppComponent {
 
   title = 'OscarProject';
   movies : Array<Movie> = [];
-  constructor(private http : HttpRequesterService) {
-    
+  private isLogged : boolean;
+  constructor(private storageService : StorageService, private http : HttpRequesterService) {
+    this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
+    storageService.currentMessage.subscribe((data : any) => {
+      this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
+      console.log(data)
+    })
   }
 
   ngOnInit() {
