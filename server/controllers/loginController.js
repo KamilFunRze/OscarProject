@@ -143,7 +143,7 @@ module.exports = {
                     "firstname": req.body.firstname,
                     "lastname": req.body.lastname
                 }).then(userResult => {
-                    res.status(201).json(userResult);
+                    res.status(200).json(userResult);
                 }).catch(err => {
                     res.status(500).json({
                         "userMessage": "Server error",
@@ -168,7 +168,7 @@ module.exports = {
   login(req, res) {
     if (req.cookies.authLogin) 
     {
-      console.log(req.cookies);
+      
       res.status(400)
                 .json(
                   {
@@ -181,7 +181,7 @@ module.exports = {
     {
       user.findOne({
         where: { 
-          login: Sequelize.fn('lower', Sequelize.col('login'))
+          login: req.body.login.toLowerCase()
       }
       })
       .then(userResult => {

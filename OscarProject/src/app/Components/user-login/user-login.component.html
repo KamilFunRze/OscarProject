@@ -15,10 +15,34 @@
 
 <div class="container" *ngIf="this.isLogged">
   <div>
-      <div>
-          <label for="name">Login</label>
-          <div type="text" class="test" id="name"> {{this.user.login}}</div>
+        <div>
+          <label for="name">User info</label>
+          <div *ngIf="!this.user.firstname || !this.user.lastname" type="text" class="test" id="name">Login: {{this.user.login}}</div>
+          <div *ngIf="this.user.firstname && this.user.lastname" type="text" class="test" id="name"> {{this.user.firstname}} {{this.user.lastname}}({{this.user.login}})</div>
+        </div>
+
+        <div>
+          <label for="login">Login</label>
+          <div type="text" class="test" id="login"> {{this.user.login}}</div>
+        </div>
+      
+        <div>
+          <label for="email">Email</label>
+          <div type="text" class="test" id="email"> {{this.user.email}}</div>
+        </div>
+      
+        <div>
+          <label for="firstname">Firstname</label>
+          <div type="text" class="test" id="firstname"> {{this.user.firstname}}</div>
+        </div>
+      
+        <div>
+          <label for="lastname">Lastname</label>
+          <div type="text" class="test" id="lastname"> {{this.user.lastname}}</div>
         </div>
         
+    <input type="submit" value="Edit account" [routerLink]="['/users/details/' + user.id + '/edit']">
+    <div class="divider"></div>
     <input type="submit" value="Log out" (click)="logout()">
+  </div>
   </div>

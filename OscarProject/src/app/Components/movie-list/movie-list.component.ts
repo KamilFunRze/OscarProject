@@ -26,7 +26,7 @@ export class MovieListComponent implements OnInit {
 }
 
 
-public  getMovies(){
+ getMovies(){
     this.httpService.getMovies().subscribe((data:  Array<Movie>) => {
       data.forEach(movie => {
         movie._premiereDate= this.datePipe.transform(movie.premiereDate, 'yyyy-MM-dd');

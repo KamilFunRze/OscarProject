@@ -24,7 +24,7 @@
       <h1>Header</h1>
     </div>
     <div id="left-column">
-      <h2 id="leftMenuHeader">Explore Oscar Project</h2>
+      <h2 id="leftMenuHeader">Explore OscarProject</h2>
       <ul id="leftMenuContent">
         
         <li><a [routerLink]="'/movies'"> Browse movies </a></li>
@@ -37,11 +37,11 @@
     <div id="right-column">
       <h2 id="rightMenuHeader">Account management</h2>
       <ul id="rightMenuContent">
-        <li *ngIf="this.isLogged"><a [routerLink]="'/login'"> Logout </a></li>
+        <li *ngIf="this.isLogged"><a [routerLink]="'/login'"> Account info and Logout </a></li>
         <li *ngIf="!this.isLogged"><a [routerLink]="'/login'"> Login </a></li>
         <li *ngIf="!this.isLogged"><a [routerLink]="'/users/add'"> Register </a></li>
-        <li><a [routerLink]="'/users/details'"> My account </a></li>
-        <li><a [routerLink]="'/rates'"> My rates </a></li>
+        <li *ngIf="this.isLogged"><a [routerLink]="'/users/details/'+ this.userId + '/edit'"> Edit account </a></li>
+        <li *ngIf="this.isLogged"><a [routerLink]="'/rates'"> My rates </a></li>
         
       </ul>
     </div>

@@ -1,3 +1,22 @@
-<p>
-  user-details works!
-</p>
+<p>{{user.login}} details</p>
+
+<div class="container">
+
+  <div>
+    <label for="login">Login</label>
+    <div type="text" class="test" id="login"> {{this.user.login}}</div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <div type="text" class="test" id="email"> {{this.user.email}}</div>
+  </div>
+
+  <div *ngIf="user.firstname && user.lastname">
+    <label for="fullname">Fullname</label>
+    <div type="text" class="test" id="fullname"> {{this.user.firstname}} {{this.user.lastname}}</div>
+  </div>
+
+
+  <input type="submit" value="View {{user.login}}'s rates" [routerLink]="['/rates/']">
+</div>

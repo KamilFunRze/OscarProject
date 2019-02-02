@@ -1,5 +1,5 @@
 <p>
-  Register
+  Edit your informations!
 </p>
 
 <div class="container">
@@ -32,7 +32,8 @@
     <label class="test" for="lastname">Lastname</label>
     <input type="text" class="test" id="lastname" name="lastname" required [(ngModel)]="this.user.lastname" placeholder="Insert your lastname here">
   </div>
-  
-  
-<input type="submit" value="Register" (click)="register()">
+
+<!-- <input type="submit" value="Edit" [routerLink]="['/movies/details/' + movie.id + '/edit']"> -->
+<!-- <div class="divider"></div> -->
+<input type="submit" value="Save changes" (click)="editUser()">
 </div>

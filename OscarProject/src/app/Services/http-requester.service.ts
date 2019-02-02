@@ -59,60 +59,61 @@ logout(): Observable <any> {
 
 
 
-getUsers() {
-
+getUsers() : Observable<any> {
+  return this.httpClient.get(`${this.API_URL}/login/users`);
 }
 
 
 getOneUser(userId:number) : Observable<any>{
-  return this.httpClient.get(`${this.API_URL}/login/users/${userId}`)
+  return this.httpClient.get(`${this.API_URL}/login/users/${userId}`);
 }
 
-createUser(user : User) {
-
-}
-
-
-updateUser(userId:number, user : User) {
-
+createUser(user : User) : Observable<any>{
+  return this.httpClient.post(`${this.API_URL}/login/users`,user);
 }
 
 
+updateUser(userId:number, user : User) : Observable<any> {
+  return this.httpClient.put(`${this.API_URL}/login/users/${userId}`,user,{observe : "response",withCredentials:true});
+}
 
 
 
-getMyRates() {
 
+
+getMyRates() : Observable<any>  {
+ return this.httpClient.get(`${this.API_URL}/rates/myRates`);
 }
 
 getMyRatesForMovie(movieId:number) {
-  
+  return this.httpClient.get(`${this.API_URL}/rates/myRates/${movieId}`);
 }
 
 getOneRate(rateId:number) {
-  
+  return this.httpClient.get(`${this.API_URL}/rates/${rateId}`);
 }
 
 getAllRatesForMovie(movieId:number) {
-  
+  return this.httpClient.get(`${this.API_URL}/rates/movie/${movieId}`);
 }
 
 getAllRatesForUser(userId:number) {
-  
+  return this.httpClient.get(`${this.API_URL}/rates/user/${userId}`);
 }
 
 createRate(rate : Rate) {
-  //TODO model ratea
   return this.httpClient.post(`${this.API_URL}/rates`,
   rate , {observe : "response",withCredentials:true})
 }
 
-updateRate(rateId:number) {
-  //TODO model ratea
+updateRate(rateId:number, rate : Rate) {
+  return this.httpClient.put(`${this.API_URL}/rates`,
+  rate , {observe : "response",withCredentials:true})
 }
 
 deleteRate(rateId:number) {
-  
+  return this.httpClient.delete(`${this.API_URL}/rates/${rateId}`
+  ,{observe : "response",withCredentials:true});
 }
     
 

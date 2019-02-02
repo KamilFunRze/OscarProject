@@ -36,10 +36,8 @@ export class UserLoginComponent implements OnInit {
 
   constructor(private storageService : StorageService,private http: HttpRequesterService, private route: ActivatedRoute, router: Router) {
       this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
-      this.user.login = window.localStorage.getItem('userLogin') || ""
-      this.user.firstname = window.localStorage.getItem('userFirstName') || ""
-      this.user.lastname = window.localStorage.getItem('userLastName') || ""
-      console.log(this.isLogged)
+      this.user.id = window.localStorage.getItem('userId')  ? +window.localStorage.getItem('userId') : null;
+      if (this.user.id != null) this.getUserData(this.user.id);
   }
 
   ngOnInit() {
@@ -48,24 +46,21 @@ export class UserLoginComponent implements OnInit {
 
 
   login() {
-    console.log(this.user);
     this.http.login(this.user.login, this.user.password)
       .subscribe((data: HttpResponse < any > ) => {
           alert("Logged in successfully");
           window.localStorage.setItem("isLogged","true");
           this.isLogged = true;
-          window.localStorage.setItem('userLogin',this.user.login);
+          window.localStorage.setItem('userId',data.body.userId.toString());
           this.storageService.changeMessage("login");
           this.getUserData(data.body.userId)
         
       },
       (error: HttpErrorResponse ) => {
         
-        alert("Problem with login. " + error.error.userMessage);
-        console.log(error.error.internalMessage);
-        window.localStorage.setItem("isLogged","true");
-        this.isLogged = true;
-        window.localStorage.removeItem('userLogin');
+        alert("Problem with login. " + error.error.userMessage + " Try again.");
+        window.localStorage.removeItem('userId');
+        window.localStorage.setItem("isLogged","false");
       })
 
   }
@@ -74,7 +69,7 @@ export class UserLoginComponent implements OnInit {
     
     window.localStorage.setItem("isLogged","false");
     this.isLogged = false;
-    window.localStorage.removeItem('userLogin');
+    window.localStorage.removeItem('userId');
     this.user.login = "";
     this.user.password = "";
     this.http.logout().subscribe((data: any) => {},
@@ -87,7 +82,6 @@ export class UserLoginComponent implements OnInit {
   getUserData(userId : number) {
    return this.http.getOneUser(userId).subscribe((data : any) => {
     this.user = data;
-    console.log(data);
    })
   }
 }

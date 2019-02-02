@@ -12,6 +12,7 @@ import { MovieCreateComponent } from './Components/movie-create/movie-create.com
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
 import { MainPageComponent } from './Components/main-page/main-page.component';
 import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
+import { UserEditComponent } from './Components/user-edit/user-edit.component';
 
 const routes: Routes = [
 
@@ -28,20 +29,28 @@ const routes: Routes = [
   component:  UserListComponent
 },
 {
-  path:  'users/details:id',
+  path:  'users/details/:id',
   component:  UserDetailsComponent
+},
+{
+  path:  'users/details/:id/edit',
+  component:  UserEditComponent
 },
 {
   path:  'users/add',
   component:  UserCreateComponent
 },
 {
-  path:  'rates',
+  path:  'rates/user/:userId',
   component:  RateListComponent
 },
 {
-  path:  'rates/add',
-  component:  RateCreateComponent
+  path:  'rates/movie/:movieId',
+  component:  RateListComponent
+},
+{
+  path:  'myRates',
+  component:  RateListComponent
 },
 {
   path:  'rates/details/:id',

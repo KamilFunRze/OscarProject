@@ -211,7 +211,7 @@
       position: relative;
     width: calc(100% * 2/3);
     float: left;
-    text-align: justify;
+    text-align: center;
     top: 30px;
     padding-bottom:30px;
   }
@@ -306,7 +306,7 @@
   #center-column {
     width: 100%;
     float: left;
-    text-align: justify; 
+    text-align: center;
     top: 30px;
   }
 
@@ -410,7 +410,7 @@
 
   #center-column {
     width: 100%;
-    text-align: justify;
+    text-align: center;
 
     top: 30px;
   }

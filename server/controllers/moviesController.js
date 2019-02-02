@@ -58,7 +58,7 @@ module.exports = {
     },
 
     addMovie(req,res) {
-        console.log(req.body);
+        
         if (req.body.title == null || req.body.title == '')
         {
             res.status(400).json({
@@ -129,16 +129,16 @@ module.exports = {
     getMyRates(req,res) {
         if (!req.cookies.authLogin)
         {
-            res.status(500).json({
+            res.status(400).json({
                 "userMessage": "No info about user",
                 "internalMessage" : "WhoAreYou",
-                "errorCode" : "500"
+                "errorCode" : "400"
             })
                 
         }
         else
         {
-            rate.findAll({where:{user_id:req.cookies.authLogin}})
+            rate.findAll({where:{user_id:req.cookies.authLogin},order : [createdAt]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -166,7 +166,7 @@ module.exports = {
         else
         {
             rate.findAll({where:{user_id :req.cookies.authLogin,
-                                movie_id : req.params.movieId}})
+                                movie_id : req.params.movieId},order : [createdAt]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -195,7 +195,7 @@ module.exports = {
     },
 
     getOneMovieRates(req,res) {
-        rate.findAll({where:{movie_id:req.params.movieId}})
+        rate.findAll({where:{movie_id:req.params.movieId},order : [createdAt]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -208,7 +208,7 @@ module.exports = {
     },
 
     getOneUserRates(req,res) {
-        rate.findAll({where:{user_id:req.params.userId}})
+        rate.findAll({where:{user_id:req.params.userId},order : [createdAt]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {

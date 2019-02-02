@@ -1,3 +1,23 @@
-<p>
-  user-list works!
-</p>
+<div id="userListContainer">
+
+  <div>
+    <div *ngFor="let user of users">
+
+      <div class="singleUser" *ngIf="user.firstname && user.lastname">
+        <div class="userLogin" [routerLink]="'/users/details/'+ user.id">
+          {{user.login}} ({{user.firstname}} {{user.lastname}})
+        </div>
+      </div>
+      <div class="singleUser" *ngIf="!(user.firstname && user.lastname)">
+        <div class="userLogin" [routerLink]="'/users/details/'+ user.id">
+          {{user.login}} ()
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+  </div>
+
+</div>

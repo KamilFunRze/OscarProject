@@ -14,11 +14,13 @@ export class AppComponent {
   title = 'OscarProject';
   movies : Array<Movie> = [];
   private isLogged : boolean;
+  private userId : number;
   constructor(private storageService : StorageService, private http : HttpRequesterService) {
     this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
+    if (this.isLogged) this.userId = +window.localStorage.getItem('userId') 
     storageService.currentMessage.subscribe((data : any) => {
       this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
-      console.log(data)
+      if (this.isLogged) this.userId = +window.localStorage.getItem('userId')
     })
   }
 

@@ -26,6 +26,7 @@ import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MovieEditComponent } from './Components/movie-edit/movie-edit.component';
 import { StorageService } from './Services/storage.service';
+import { UserEditComponent } from './Components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { StorageService } from './Services/storage.service';
     RateDetailsComponent,
     RateCreateComponent,
     MainPageComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
