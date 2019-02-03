@@ -1,6 +1,7 @@
 
 
-<div id="container">
+<div id="container" *ngIf="isLogged">
+  <div>Rate movie: <br></div>
         Score:
   <div id="progressBarOuter" (click)="getClickPosition($event)">
     <div id="progressBar">{{progress}}/100</div>
@@ -22,4 +23,9 @@
     <textarea class="test" name="comment" id="comment" [(ngModel)]="rate.rateComment"></textarea>
   </div>
   <input type="submit" value="Rate this movie" (click)="submitRate()">
+</div>
+
+<div *ngIf="!isLogged" class="container loginBlocker">
+  <div>Rate movie: <br></div>
+<input type="submit" value="Go to login">
 </div>

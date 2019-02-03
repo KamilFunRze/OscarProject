@@ -52,6 +52,10 @@ const routes: Routes = [
   component:  RateListComponent
 },
 {
+  path:  'rates/:userId',
+  component:  RateListComponent
+},
+{
   path:  'movies',
   component:  MovieListComponent
 },

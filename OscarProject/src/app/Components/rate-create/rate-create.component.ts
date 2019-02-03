@@ -14,12 +14,13 @@ export class RateCreateComponent implements OnInit {
   @Input() movieId : number;
   private progress : number = 50;
   private rate : Rate = new Rate(null,50,null,false,this.movieId,null,null,null);
+  private isLogged : boolean= JSON.parse(window.localStorage.getItem("isLogged") || "false");
 
   constructor(private http : HttpRequesterService, 
     private storageService : StorageService,
     private router : Router,
     private route : ActivatedRoute) {
-
+      
       router.events.subscribe((val) => {
       
         if (val instanceof NavigationEnd)
@@ -27,6 +28,12 @@ export class RateCreateComponent implements OnInit {
           this.OnChanges();
         } 
     });
+    storageService.currentMessage.subscribe((data : string) => {
+      if (data == "login" || data == "logout")
+      {
+        this.OnChanges();
+      }
+    })
      }
 
   ngOnInit() {
@@ -37,6 +44,7 @@ export class RateCreateComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.movieId =  +params['id'];
     });
+
   }
 
   getClickPosition(e) {
@@ -64,7 +72,6 @@ submitRate() {
   this.rate.movieId = this.movieId;
   this.rate.rateComment = this.rate.rateComment.length == 0 ? null : this.rate.rateComment;
   this.http.createRate(this.rate).subscribe((data : any) => {
-    // console.log(data);
     this.rate.wantToSee = false;
     this.progress = 50;
     this.rate.score = this.progress;

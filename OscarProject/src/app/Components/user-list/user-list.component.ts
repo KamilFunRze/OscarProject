@@ -22,7 +22,6 @@ export class UserListComponent implements OnInit {
   getUsers(){
     this.httpService.getUsers().subscribe((data:  Array<User>) => {
       this.users  =  data;
-      console.log(data);
     });
   }
 

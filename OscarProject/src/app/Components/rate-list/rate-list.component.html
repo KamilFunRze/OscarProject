@@ -1,5 +1,6 @@
 <div id="rateListContainer">
-
+  <h3 *ngIf="isSelfRatesList">Your rates:</h3>
+  <h3 *ngIf="!isSelfRatesList">{{username}}'s rates:</h3>
   <div>
     <div *ngFor="let rate of ratesExtended">
       

@@ -35,20 +35,30 @@
     display:inline-block;
 } */
 
+iframe {
+  min-height: 300px;
+}
+
 @media screen and (min-width:1300px) {
   #myRates {
-    display: inline-flex;
-    max-width: 60%;
-    min-width: 40%;
-
-    padding: 10px;
+    display: inline-table;
+    overflow: hidden;
+    width: 40%;
+    max-width: 50%;
+    padding: 5%;
   }
 
   #addRate {
-    display: inline-flex;
+    display: inline-table;
     border: 2px solid black;
     border-radius: 5px;
+    width: 40%;
+    float: left;
     padding: 10px;
+  }
+
+  iframe {
+    min-height: 500px;
   }
 
 }

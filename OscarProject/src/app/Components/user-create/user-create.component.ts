@@ -29,6 +29,8 @@ export class UserCreateComponent implements OnInit {
     if ((this.user.password == this.retypePassword) && 
     (this.user.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)))
     {
+      this.user.firstname = this.user.firstname.length == 0 ? null : this.user.firstname
+      this.user.lastname = this.user.lastname.length == 0 ? null : this.user.lastname
       this.http.createUser(this.user).subscribe((data: any) => {
         alert("Registered successfully!");
         this.router.navigate(["/login"]);

@@ -17,9 +17,9 @@
 
   #progressBar {
     border-radius: 4px;
-    width:0%;
-    background:red;
     height: 50px;
+    width: 50%;
+    background-color: rgb(127,127,0);
     line-height: 50px;
 }
 
@@ -79,4 +79,10 @@
     width:20px;
     height:auto;
     display:inline-block;
+}
+
+.loginBlocker {
+  min-width:100px;
+  height: 200px;
+
 }

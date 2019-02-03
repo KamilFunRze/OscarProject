@@ -7,11 +7,13 @@
         <div class="userLogin" [routerLink]="'/users/details/'+ user.id">
           {{user.login}} ({{user.firstname}} {{user.lastname}})
         </div>
+        <span class="ratesLink" [routerLink]="['/rates/'+ user.id]">View {{user.login}}'s rates</span>
       </div>
       <div class="singleUser" *ngIf="!(user.firstname && user.lastname)">
         <div class="userLogin" [routerLink]="'/users/details/'+ user.id">
           {{user.login}} ()
         </div>
+        <span class="ratesLink" [routerLink]="['/rates/'+ user.id]">View {{user.login}}'s rates</span>
       </div>
       
 

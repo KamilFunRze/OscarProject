@@ -14,12 +14,13 @@ export class MovieRatesComponent implements OnInit {
 
   @Input() movieId : number;
   private rates : Array<Rate>;
+  private editRate : number;
 
   constructor(private http : HttpRequesterService, 
      private storageService : StorageService,
      private router : Router,
      private route : ActivatedRoute) {
-      setTimeout(()=>{this.updateRates()},1);
+      // setTimeout(()=>{this.updateRates()},1);
        storageService.currentMessage.subscribe((data : string) => {
          if (data == "addedRate") 
          {
@@ -51,5 +52,49 @@ export class MovieRatesComponent implements OnInit {
     });
     this.updateRates();
   }
+
+  getClickPosition(e,rateId : number) {
+    let xPosition = e.clientX;
+    var rect = document.getElementById("progressBarOuter").getBoundingClientRect();
+    let rate :Rate;
+   this.rates.forEach((ra) => {
+    if(ra.id == rateId)
+      rate = ra;
+  });
+    rate.score = (xPosition - rect.left)/(rect.right - rect.left)*100;
+    rate.score = +rate.score.toFixed();
+    this.moveProgressBar(rate.score);
+    
+}
+
+moveProgressBar(score : number) {
+  let bar = document.getElementById("progressBar");
+    bar.style.width = (score).toString() + "%";
+    bar.style.backgroundColor =  
+    `rgb(${(100 - score)*255/100}, ${score*255/100}, 0)`;
+}
+
+setWantToSee(option : boolean, rateId: number) {
+  let rate :Rate;
+   this.rates.forEach((ra) => {
+    if(ra.id == rateId)
+      rate = ra;
+  });
+  rate.wantToSee = option;
+}
+
+submitRate(rateId: number) {
+  let rate :Rate;
+   this.rates.forEach((ra) => {
+    if(ra.id == rateId)
+      rate = ra;
+  });
+  rate.rateComment = rate.rateComment.length == 0 ?
+   null : rate.rateComment;
+  this.http.updateRate(rate.id,rate).subscribe((data : any) => {
+    alert("Successfully changed this rate.");
+    this.storageService.changeMessage("addedRate");
+  })
+}
 
 }

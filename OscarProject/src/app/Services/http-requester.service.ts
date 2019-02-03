@@ -94,11 +94,13 @@ getOneRate(rateId:number) {
 }
 
 getAllRatesForMovie(movieId:number) {
-  return this.httpClient.get(`${this.API_URL}/rates/movie/${movieId}`);
+  return this.httpClient.get(`${this.API_URL}/rates/movie/${movieId}`
+  ,{observe : "response",withCredentials:true});
 }
 
 getAllRatesForUser(userId:number) {
-  return this.httpClient.get(`${this.API_URL}/rates/user/${userId}`);
+  return this.httpClient.get(`${this.API_URL}/rates/user/${userId}`
+  ,{observe : "response",withCredentials:true});
 }
 
 createRate(rate : Rate) {
@@ -107,7 +109,7 @@ createRate(rate : Rate) {
 }
 
 updateRate(rateId:number, rate : Rate) {
-  return this.httpClient.put(`${this.API_URL}/rates`,
+  return this.httpClient.put(`${this.API_URL}/rates/${rateId}`,
   rate , {observe : "response",withCredentials:true})
 }
 

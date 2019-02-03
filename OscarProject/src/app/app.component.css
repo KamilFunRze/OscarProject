@@ -91,7 +91,7 @@
 
   #oneLatestMovieTitle {
     color: red;
-    font-size: 130%;
+    word-wrap: break-word;
   }
 
   .gap {
@@ -139,7 +139,8 @@
     clear: both;
     padding: 5px 5px 5px 5px;
     text-align: center;
-    position: sticky;
+    position: relative sticky;
+    opacity: 0.9;
     bottom: 0;
     width: 99%
   }

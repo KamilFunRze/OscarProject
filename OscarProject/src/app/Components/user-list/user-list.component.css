@@ -16,6 +16,13 @@
     font-size: 200%;
 }
 
+.ratesLink:hover {
+    color: red;
+    font-size: 120%;
+    line-height: 80%;
+    cursor: pointer;
+}
+
 
 @media screen and (min-width:1300px) {
 

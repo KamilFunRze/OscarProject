@@ -3,6 +3,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const syncService = require('./server/services/voteSyncService')
 
 // Set up the express app
 const app = express();
@@ -18,6 +19,9 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+syncService.updateRates();
+setInterval(() => {syncService.updateRates()},1000*60*60*6);
 
 // Log requests to the console.
 app.use(logger('dev'));

@@ -1,6 +1,11 @@
 <p>
     Movie Details!
   </p>
+
+  <iframe style="width:80%; height:auto" 
+  src="https://www.youtube.com/embed/wsDOFF1y_uI"
+   frameborder="0" allow="accelerometer; 
+   autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
   <div class="container">
    <div id="movieDetails">
@@ -9,12 +14,12 @@
           <div type="text" class="test" id="name"> {{this.movie.title}}</div>
         </div>
       
-        <div>
+        <div *ngIf="movie.premiereDate">
           <label for="premiereDate">Premiere Date</label>
           <div class="test" id="premiereDate">{{this.movie._premiereDate}}</div>
         </div>
       
-        <div>
+        <div *ngIf="movie.description">
           <label for="description">Description</label>
           <div class="test" id="description" >{{this.movie.description}}</div>
         </div>
@@ -22,7 +27,8 @@
       <!-- <div class="divider"></div>
       <input type="submit" value="Delete" (click)="deleteMovie()"> -->
    </div>
-
+  </div>
+  <br>
    <span id="addRate">
     <app-rate-create [movieId]="id"></app-rate-create>
   </span>
@@ -31,5 +37,5 @@
   </span>
   
 
-  </div>
+  
   
