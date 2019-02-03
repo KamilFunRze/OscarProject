@@ -109,7 +109,14 @@ submitRate(rateId: number) {
   this.http.updateRate(rate.id,rate).subscribe((data : any) => {
     alert("Successfully changed this rate.");
     this.storageService.changeMessage("addedRate");
-  })
+  });
+}
+
+deleteRate(rateId:number) {
+  this.http.deleteRate(rateId).subscribe((data : any) => {
+    alert("Successfully deleted this rate.");
+    this.storageService.changeMessage("addedRate");
+  });
 }
 
 }

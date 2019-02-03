@@ -39,6 +39,8 @@
               <textarea class="test" name="comment" id="comment" [(ngModel)]="rate.rateComment"></textarea>
             </div>
             <input type="submit" value="Change" (click)="submitRate(rate.id)">
+            <div class="divider"></div>
+            <input type="submit" value="Delete Rate" (click)="deleteRate(rate.id)">
           </div>
         
   
