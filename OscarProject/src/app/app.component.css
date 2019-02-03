@@ -65,6 +65,8 @@
     right: -20px;
   }
 
+  
+
   #oneLatestMovie {
     display: inline-flex;
     margin: 3px;
@@ -72,15 +74,24 @@
     height: 100px;
     width: 18%;
     text-align: center;
-    color: rgb(16, 16, 43);
+    color: rgb(195, 192, 192);
     word-wrap: break-word;
     overflow:hidden;
+    background-image: url("../assets/img/film-placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #cccccc;
 
   }
 
   #oneLatestMovie:hover {
     border: 2px solid rgb(151, 52, 52);
     
+  }
+
+  #oneLatestMovieTitle {
+    color: red;
+    font-size: 130%;
   }
 
   .gap {

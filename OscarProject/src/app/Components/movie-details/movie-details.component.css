@@ -37,13 +37,18 @@
 
 @media screen and (min-width:1300px) {
   #myRates {
-    display: inline-block;
+    display: inline-flex;
+    max-width: 60%;
     min-width: 40%;
+
+    padding: 10px;
   }
 
   #addRate {
-    display: inline-block;
-    min-width: 40%;
+    display: inline-flex;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
   }
 
 }

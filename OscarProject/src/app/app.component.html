@@ -10,7 +10,7 @@
         
         <div>
           <div id="oneLatestMovie" *ngFor="let movie of movies" [routerLink]="'/movies/details/' + movie.id">
-            {{movie.title}}
+            <h3 id="oneLatestMovieTitle">{{movie.title}}</h3>
           </div>
           
         </div>
