@@ -3,7 +3,7 @@
     <div>
       <div *ngFor="let rate of rates" >
         
-        <div class="singleRate" (click)="editRate = editRate == rate.id ? 0 :rate.id" title="Click to edit!">
+        <div class="singleRate" (click)="openRateEditor(rate.id,rate.score)" title="Click to edit!">
           <span class="movieVote">
             Score: 
             <span class="score">{{rate.score}}/100</span> 
@@ -19,8 +19,8 @@
   
         <div id="container" *ngIf="editRate==rate.id" >
             Score:
-            <div id="progressBarOuter" (click)="getClickPosition($event,rate.id)">
-              <div id="progressBar">{{rate.score}}/100</div>
+            <div [id]="'progressBarOuter'+rate.id" class="progressBarOuter" (click)="getClickPosition($event,rate.id)">
+              <div [id]="'progressBar'+rate.id" class="progressBar">{{rate.score}}/100</div>
             </div>
             <br>
             <div>

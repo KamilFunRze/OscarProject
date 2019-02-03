@@ -27,5 +27,5 @@
 
 <div *ngIf="!isLogged" class="container loginBlocker">
   <div>Rate movie: <br></div>
-<input type="submit" value="Go to login">
+<input type="submit" value="Go to login" [routerLink]="['/login']" routerLinkActive="router-link-active" >
 </div>

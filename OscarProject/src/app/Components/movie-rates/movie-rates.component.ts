@@ -38,11 +38,22 @@ export class MovieRatesComponent implements OnInit {
 
   ngOnInit() {
     
+    
   }
+
+  openRateEditor(rateId,rateScore) {
+    this.editRate = this.editRate == rateId ? 0 :rateId;
+    setTimeout(()=>this.moveProgressBar(rateScore,rateId),50);
+  }
+
+  
 
   updateRates() {
     this.http.getMyRatesForMovie(this.movieId).subscribe((data : HttpResponse<any>) => {
       this.rates = data.body;
+      this.rates.forEach(rate => {
+        this.moveProgressBar(rate.score,rate.id);
+      })
     })
   }
 
@@ -55,7 +66,7 @@ export class MovieRatesComponent implements OnInit {
 
   getClickPosition(e,rateId : number) {
     let xPosition = e.clientX;
-    var rect = document.getElementById("progressBarOuter").getBoundingClientRect();
+    var rect = document.getElementById("progressBarOuter"+rateId).getBoundingClientRect();
     let rate :Rate;
    this.rates.forEach((ra) => {
     if(ra.id == rateId)
@@ -63,15 +74,18 @@ export class MovieRatesComponent implements OnInit {
   });
     rate.score = (xPosition - rect.left)/(rect.right - rect.left)*100;
     rate.score = +rate.score.toFixed();
-    this.moveProgressBar(rate.score);
+    this.moveProgressBar(rate.score,rate.id);
     
 }
 
-moveProgressBar(score : number) {
-  let bar = document.getElementById("progressBar");
+moveProgressBar(score : number,rateId:number) {
+  let bar = document.getElementById("progressBar"+rateId);
+    if (bar != null)
+    {
     bar.style.width = (score).toString() + "%";
     bar.style.backgroundColor =  
     `rgb(${(100 - score)*255/100}, ${score*255/100}, 0)`;
+    }
 }
 
 setWantToSee(option : boolean, rateId: number) {
@@ -89,7 +103,8 @@ submitRate(rateId: number) {
     if(ra.id == rateId)
       rate = ra;
   });
-  rate.rateComment = rate.rateComment.length == 0 ?
+  
+  rate.rateComment = rate.rateComment == null || rate.rateComment.length == 0 ?
    null : rate.rateComment;
   this.http.updateRate(rate.id,rate).subscribe((data : any) => {
     alert("Successfully changed this rate.");
