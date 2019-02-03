@@ -138,7 +138,7 @@ module.exports = {
         }
         else
         {
-            rate.findAll({where:{user_id:req.cookies.authLogin},order : [createdAt]})
+            rate.findAll({where:{user_id:req.cookies.authLogin},order: [['createdAt', 'DESC']]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -166,7 +166,7 @@ module.exports = {
         else
         {
             rate.findAll({where:{user_id :req.cookies.authLogin,
-                                movie_id : req.params.movieId},order : [createdAt]})
+                                movie_id : req.params.movieId},order: [['createdAt', 'DESC']]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -195,7 +195,7 @@ module.exports = {
     },
 
     getOneMovieRates(req,res) {
-        rate.findAll({where:{movie_id:req.params.movieId},order : [createdAt]})
+        rate.findAll({where:{movie_id:req.params.movieId},order: [['createdAt', 'DESC']]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {
@@ -208,7 +208,7 @@ module.exports = {
     },
 
     getOneUserRates(req,res) {
-        rate.findAll({where:{user_id:req.params.userId},order : [createdAt]})
+        rate.findAll({where:{user_id:req.params.userId},order: [['createdAt', 'DESC']]})
             .then(rateResult => {
                 res.json(rateResult);
             }).catch(err => {

@@ -12,10 +12,12 @@ import { DatePipe } from '@angular/common';
 export class MovieDetailsComponent implements OnInit {
 
 
-  private movie : Movie;
+  private movie : Movie = new Movie(null,null,null,null,null,null);;
   private id : number;
-  constructor(private http : HttpRequesterService, private route: ActivatedRoute, private datePipe:DatePipe, router : Router) {
-    this.movie = new Movie(null,null,null,null,null,null);
+  constructor(private http : HttpRequesterService, 
+    private route: ActivatedRoute, 
+    private datePipe:DatePipe, router : Router) {
+    this.OnChanges();
     router.events.subscribe((val) => {
       
       if (val instanceof NavigationEnd)
@@ -27,7 +29,7 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit() {
     
-    this.OnChanges();
+    
   }
 
   OnChanges() {

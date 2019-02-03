@@ -12,7 +12,7 @@ import { Rate } from '../Models/rate';
 export class HttpRequesterService {
 
 
-API_URL  =  'http://192.168.1.119:5555/api';
+private API_URL  =  'http://192.168.1.119:5555/api';
 
 constructor(private  httpClient:  HttpClient) {
 
@@ -82,11 +82,11 @@ updateUser(userId:number, user : User) : Observable<any> {
 
 
 getMyRates() : Observable<any>  {
- return this.httpClient.get(`${this.API_URL}/rates/myRates`);
+ return this.httpClient.get(`${this.API_URL}/rates/myRates`, {observe : "response",withCredentials:true});
 }
 
-getMyRatesForMovie(movieId:number) {
-  return this.httpClient.get(`${this.API_URL}/rates/myRates/${movieId}`);
+getMyRatesForMovie(movieId:number) : Observable<any> {
+  return this.httpClient.get(`${this.API_URL}/rates/myRates/${movieId}`, {observe : "response",withCredentials:true});
 }
 
 getOneRate(rateId:number) {

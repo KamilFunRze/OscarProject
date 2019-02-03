@@ -34,3 +34,52 @@
     height:auto;
     display:inline-block;
 } */
+
+@media screen and (min-width:1300px) {
+  #myRates {
+    display: inline-block;
+    min-width: 40%;
+  }
+
+  #addRate {
+    display: inline-block;
+    min-width: 40%;
+  }
+
+}
+
+@media screen and (min-width:600px) and (max-width:1299px) {
+  #myRates {
+    display: block;
+    width: 90%;
+  }
+
+  #addRate {
+    display: block;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width:400px) and (max-width:599px) {
+  #myRates {
+    display: block;
+    width: 100%;
+  }
+
+  #addRate {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:399px) {
+  #myRates {
+    display: block;
+    width: 100%;
+  }
+
+  #addRate {
+    display: block;
+    width: 100%;
+  }
+}

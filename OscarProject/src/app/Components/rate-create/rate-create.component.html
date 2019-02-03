@@ -1,3 +1,25 @@
-<p>
-  rate-create works!
-</p>
+
+
+<div id="container">
+        Score:
+  <div id="progressBarOuter" (click)="getClickPosition($event)">
+    <div id="progressBar">{{progress}}/100</div>
+  </div>
+  <br>
+  <div>
+    Want to see:
+    <div>
+      <span class="trueSwitch" *ngIf="rate.wantToSee">True &#9989;</span>
+      <span class="disabledSwitch" *ngIf="!rate.wantToSee" (click)="setWantToSee(true)">True</span>
+      <span class="divider"></span>
+      <span class="falseSwitch" *ngIf="!rate.wantToSee">False &#9989;</span>
+      <span class="disabledSwitch" *ngIf="rate.wantToSee" (click)="setWantToSee(false)">False</span>
+    </div>
+  </div>
+
+  <div>
+    <label class="test" for="comment">Comment:</label>
+    <textarea class="test" name="comment" id="comment" [(ngModel)]="rate.rateComment"></textarea>
+  </div>
+  <input type="submit" value="Rate this movie" (click)="submitRate()">
+</div>

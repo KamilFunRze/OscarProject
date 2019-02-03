@@ -1,4 +1,8 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/Models/movie';
+import { RateExtended } from 'src/app/Models/rateExtended';
+import { HttpRequesterService } from 'src/app/Services/http-requester.service';
 
 @Component({
   selector: 'app-rate-list',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RateListComponent implements OnInit {
 
-  constructor() { }
+
+  
+  private ratesExtended : Array<RateExtended> = [];
+  constructor(private http : HttpRequesterService) {
+    this.http.getMyRates().subscribe((data: HttpResponse<Array<RateExtended>>) => {
+      this.ratesExtended = data.body;
+      this.ratesExtended.forEach((rateExtended : RateExtended) => {
+        this.http.getOneMovie(rateExtended.movie_id).subscribe((movie : Movie) => {
+          rateExtended.movie = movie;
+        })
+      })
+    });
+   }
 
   ngOnInit() {
+    
   }
 
 }

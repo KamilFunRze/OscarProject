@@ -1,0 +1,26 @@
+<div id="rateListContainer">
+<h4>My rates:</h4>
+    <div>
+      <div *ngFor="let rate of rates">
+        
+        <div class="singleRate" >
+          <span class="movieVote">
+            Score: 
+            <span class="score">{{rate.score}}/100</span> 
+             <br>
+            <h4 *ngIf="rate.wantToSee">Want to see again.</h4>  
+            <h4 *ngIf="!rate.wantToSee">Dont want to see it again.</h4> 
+            
+          </span>
+        <br>
+          <div *ngIf="rate.rateComment">Comment: <br>{{rate.rateComment}}</div>
+          <div *ngIf="!rate.rateComment">With no additional comment.</div>
+        </div>
+  
+        
+  
+      </div>
+    </div>
+  
+  </div>
+  

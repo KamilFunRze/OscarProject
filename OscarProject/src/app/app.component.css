@@ -1,5 +1,5 @@
 .yellowBackground {
-  background: #FFED25;
+  background: rgb(161, 155, 82);
 }
 
 .sheetyBackground {
@@ -7,7 +7,7 @@
 }
 
 .orangeBackground {
-  background: #FF9C23;
+  background: rgb(168, 109, 37);
   opacity: 0.9;
 }
 
@@ -24,6 +24,7 @@
   background: rgb(54, 23, 23);
   opacity: 0.85;
   min-height: 100vh;
+  margin: 0px;
 }
 
 .mainTextBackground {
@@ -83,7 +84,6 @@
   }
 
   .gap {
-    background: #FF9C23;
     height: 50px;
 }
 
@@ -186,7 +186,6 @@
   }
 
   .gap {
-    background: #FF9C23;
     height: 30px;
 }
 
@@ -284,7 +283,6 @@
   }
 
   .gap {
-    background: #FF9C23;
     height: 20px;
 }
 
@@ -375,7 +373,6 @@
   }
 
   .gap {
-    background: #FF9C23;
     height: 10px;
 }
 

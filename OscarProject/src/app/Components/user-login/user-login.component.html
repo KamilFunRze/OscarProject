@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!this.isLogged">
+<div class="container" *ngIf="!this.isLogged" (keydown)="keyDownFunction($event)">
   <div>
 
     <input class="test" type="text" id="login" name="login" required [(ngModel)]="this.user.login" placeholder="Login">
@@ -9,7 +9,7 @@
       placeholder="Password">
   </div>
 
-  <input type="submit" value="Log in" (click)="login()">
+  <input type="submit" value="Log in"  (click)="login()">
 </div>
 
 

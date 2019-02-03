@@ -3,22 +3,33 @@
   </p>
   
   <div class="container">
-    <div>
-      <label for="name">Title</label>
-      <div type="text" class="test" id="name"> {{this.movie.title}}</div>
-    </div>
+   <div id="movieDetails">
+      <div>
+          <label for="name">Title</label>
+          <div type="text" class="test" id="name"> {{this.movie.title}}</div>
+        </div>
+      
+        <div>
+          <label for="premiereDate">Premiere Date</label>
+          <div class="test" id="premiereDate">{{this.movie._premiereDate}}</div>
+        </div>
+      
+        <div>
+          <label for="description">Description</label>
+          <div class="test" id="description" >{{this.movie.description}}</div>
+        </div>
+      <input type="submit" value="Edit" [routerLink]="['/movies/details/' + movie.id + '/edit']">
+      <!-- <div class="divider"></div>
+      <input type="submit" value="Delete" (click)="deleteMovie()"> -->
+   </div>
+
+   <span id="addRate">
+    <app-rate-create [movieId]="id"></app-rate-create>
+  </span>
+  <span id="myRates">
+    <app-movie-rates [movieId]="id"></app-movie-rates>
+  </span>
   
-    <div>
-      <label for="premiereDate">Premiere Date</label>
-      <div class="test" id="premiereDate">{{this.movie._premiereDate}}</div>
-    </div>
-  
-    <div>
-      <label for="description">Description</label>
-      <div class="test" id="description" >{{this.movie.description}}</div>
-    </div>
-  <input type="submit" value="Edit" [routerLink]="['/movies/details/' + movie.id + '/edit']">
-  <!-- <div class="divider"></div>
-  <input type="submit" value="Delete" (click)="deleteMovie()"> -->
+
   </div>
   

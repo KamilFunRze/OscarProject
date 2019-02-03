@@ -6,7 +6,6 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
 import { UserCreateComponent } from './Components/user-create/user-create.component';
 import { RateListComponent } from './Components/rate-list/rate-list.component';
 import { RateCreateComponent } from './Components/rate-create/rate-create.component';
-import { RateDetailsComponent } from './Components/rate-details/rate-details.component';
 import { MovieListComponent } from './Components/movie-list/movie-list.component';
 import { MovieCreateComponent } from './Components/movie-create/movie-create.component';
 import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
@@ -51,10 +50,6 @@ const routes: Routes = [
 {
   path:  'myRates',
   component:  RateListComponent
-},
-{
-  path:  'rates/details/:id',
-  component:  RateDetailsComponent
 },
 {
   path:  'movies',

@@ -20,7 +20,7 @@
 
 
     <div id="header" class="sheetyBackground">
-      <div class="gap"></div>
+      <div class="gap orangeBackground"></div>
       <h1>Header</h1>
     </div>
     <div id="left-column">
@@ -41,7 +41,7 @@
         <li *ngIf="!this.isLogged"><a [routerLink]="'/login'"> Login </a></li>
         <li *ngIf="!this.isLogged"><a [routerLink]="'/users/add'"> Register </a></li>
         <li *ngIf="this.isLogged"><a [routerLink]="'/users/details/'+ this.userId + '/edit'"> Edit account </a></li>
-        <li *ngIf="this.isLogged"><a [routerLink]="'/rates'"> My rates </a></li>
+        <li *ngIf="this.isLogged"><a [routerLink]="'/myRates'"> My rates </a></li>
         
       </ul>
     </div>

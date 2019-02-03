@@ -1,0 +1,16 @@
+.singleRate {
+    padding-bottom: 40px;
+}
+
+.score {
+    font-size: 160%;
+}
+
+.movieTitle {
+    font-size: 180%;
+}
+
+.movieTitle:hover {
+    color: red;
+    cursor: pointer;
+}

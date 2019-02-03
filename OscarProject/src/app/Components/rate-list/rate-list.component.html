@@ -1,3 +1,26 @@
-<p>
-  rate-list works!
-</p>
+<div id="rateListContainer">
+
+  <div>
+    <div *ngFor="let rate of ratesExtended">
+      
+      <div class="singleRate" >
+        <h4 class="movieTitle" [routerLink]="'/movies/details/'+ rate.movie.id">{{rate.movie.title}}  </h4>
+        <span class="movieVote">
+          has been scored 
+          <span class="score">{{rate.score}}/100</span> 
+          and 
+          <span *ngIf="rate.wantToSee">wants</span>  
+          <span *ngIf="!rate.wantToSee">does not want</span> 
+          to see it again.
+        </span>
+      
+        <div *ngIf="rate.rateComment">and commented: <br>{{rate.rateComment}}</div>
+        <div *ngIf="!rate.rateComment">with no additional comment</div>
+      </div>
+
+      
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,10 @@
+.singleRate {
+    padding-bottom: 40px;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.score {
+    font-size: 160%;
+}
+

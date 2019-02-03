@@ -17,10 +17,14 @@ export class AppComponent {
   private userId : number;
   constructor(private storageService : StorageService, private http : HttpRequesterService) {
     this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
-    if (this.isLogged) this.userId = +window.localStorage.getItem('userId') 
-    storageService.currentMessage.subscribe((data : any) => {
-      this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
+    if (this.isLogged) this.userId = +window.localStorage.getItem('userId') ;
+    
+    storageService.currentMessage.subscribe((data : string) => {
+      if (data == "login" || data == "logout")
+      {
+        this.isLogged = JSON.parse(window.localStorage.getItem('isLogged') || "false");
       if (this.isLogged) this.userId = +window.localStorage.getItem('userId')
+      }
     })
   }
 

@@ -1,27 +1,10 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  User
-} from 'src/app/Models/user';
-import {
-  HttpRequesterService
-} from 'src/app/Services/http-requester.service';
-import {
-  ActivatedRoute,
-  Router
-} from '@angular/router';
-import {
-  DatePipe
-} from '@angular/common';
-import {
-  HttpHeaders,
-  HttpResponse,
-  HttpResponseBase,
-  HttpErrorResponse
-} from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { HttpRequesterService } from 'src/app/Services/http-requester.service';
 import { StorageService } from 'src/app/Services/storage.service';
+import { logging } from 'protractor';
 
 
 @Component({
@@ -83,5 +66,11 @@ export class UserLoginComponent implements OnInit {
    return this.http.getOneUser(userId).subscribe((data : any) => {
     this.user = data;
    })
+  }
+
+  keyDownFunction(event) {
+    if(event.keyCode == 13) {
+      this.login();
+    }
   }
 }
